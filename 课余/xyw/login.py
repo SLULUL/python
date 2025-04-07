@@ -18,7 +18,7 @@ while True:
     if title == '注销页':
         pass
     else:
-        schoolWebLoginURL = schoolWebURL + 'drcom/login?callback=dr1003&DDDDD=' + \
+        schoolWebLoginURL = "http://10.200.253.5/drcom/login?callback=dr1003&DDDDD=" + \
             account + '%40' + c + '&upass=' + password + '&0MKKey=123456'
 
         response = requests.get(schoolWebLoginURL).status_code
