@@ -24,8 +24,10 @@ x_train, x_test, ytrain, y_test = train_test_split(
 # print(np.unique(y))
 ''' 第二步：特征矩阵归一化，确保训练集、测试集里面都没有负值；'''
 mms = MinMaxScaler().fit(x_train)
-x_train_ = mms.transform(x_train)
-x_test_ = mms.transform(x_test)
+kbs = KBinsDiscretizer(n_bins=10, encode='onehot').fit(x_train)
+x_train_ = kbs.transform(x_train)
+x_test_ = kbs.transform(x_test)
+print(x_train_.shape)
 # print(x_train.shape)
 mnb = MultinomialNB().fit(x_train_, ytrain)
 # print(mnb.class_log_prior_)
@@ -43,10 +45,5 @@ mnb = MultinomialNB().fit(x_train_, ytrain)
  返回每个样本在每个标签取值下的概率
  返回准确度：'''
 print(mnb.score(x_test_, y_test))
-print(mnb.predict(x_test_))
-print(mnb.predict_proba(x_test_))
-
-kbs = KBinsDiscretizer(n_bins=10, encode='onehot').fit(x_train)
-x_train_ = kbs.transform(x_train)
-x_test_ = kbs.transform(x_test)
-print(x_train_.shape)
+# print(mnb.predict(x_test_))
+# print(mnb.predict_proba(x_test_))

@@ -13,3 +13,8 @@ gnb = GaussianNB().fit(X_train, Ytrain)
 
 prob = gnb.predict_proba(X_test)
 print(prob)
+# 打印出矩阵形状，结果是多少？
+print(prob.shape)
+# 如何验证每一行的概率之和为1？
+print(prob[1, :].sum())
+print(prob.sum(axis=1))

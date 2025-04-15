@@ -25,4 +25,4 @@ while True:
 
         if (response == 200):
             print(f"{datetime.datetime.now()}:'登陆成功'")
-    # time.sleep(0.1)
+    time.sleep(0.1)

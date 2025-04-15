@@ -1,3 +1,4 @@
+from sklearn.metrics import confusion_matrix as CM
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.naive_bayes import GaussianNB
@@ -12,3 +13,4 @@ X_train, X_test, Ytrain, Y_test = train_test_split(
 gnb = GaussianNB().fit(X_train, Ytrain)
 Y_pred = gnb.predict(X_test)
 print(Y_pred)
+print(CM(Y_test, Y_pred))
